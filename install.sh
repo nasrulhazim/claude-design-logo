@@ -71,7 +71,11 @@ echo "Installing files..."
 echo ""
 
 # Install files
-install_file "design-logo.md" ~/.claude/commands/design-logo.md "Design logo command"
+if ! install_file "design-logo.md" ~/.claude/commands/design-logo.md "Design logo command"; then
+    echo ""
+    echo -e "${RED}Installation failed. Please check errors above and try again.${NC}"
+    exit 1
+fi
 
 echo ""
 echo -e "${GREEN}Claude Code Design Logo System installed successfully!${NC}"
